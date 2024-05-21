@@ -52,6 +52,10 @@ bot.on('message', async (msg) => {
   }
 });
 
+app.get('/data', (req,res) => {
+  res.status(200).json({message: 'data work'})
+})
+
 app.post('/web-data', async (req, res) => {
   const {queryId, product, totalPrice} = req.body;
 
