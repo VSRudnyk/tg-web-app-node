@@ -2,5 +2,5 @@
     "version": 2,
     "name": "tg-web-app-node",
     "builds": [{ "src": "index.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "index.js", "dest": "/index.js" }]
+    "routes": [{ "src": "/(.*)", "dest": "index.js" }]
   }
