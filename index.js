@@ -16,17 +16,17 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if (text === '/start') {
-    await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
-      reply_markup: {
-        keyboard: [
-          [{ text: 'Заполнить форму', web_app: { url: webAppUrl + '/form' } }],
-        ],
-      },
-    });
+    // await bot.sendMessage(chatId, 'Нижче з’явиться кнопка', {
+    //   reply_markup: {
+    //     keyboard: [
+    //       [{ text: 'Заполнить форму', web_app: { url: webAppUrl + '/form' } }],
+    //     ],
+    //   },
+    // });
 
     await bot.sendMessage(
       chatId,
-      'Для завантаження зображення перейдіть по кнопці нижче',
+      'Для завантаження зображення перейдіть по кнопці нижче або натисніть кнопку "Сайт"',
       {
         reply_markup: {
           inline_keyboard: [
