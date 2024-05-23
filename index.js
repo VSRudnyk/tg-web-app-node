@@ -36,9 +36,9 @@ bot.on('message', async (msg) => {
 });
 
 app.post('/web-data', async (req, res) => {
-  const { responseMessage } = req.body;
+  const { responseMessage, queryId } = req.body;
   try {
-    await bot.sendMessage(chatId, responseMessage);
+    await bot.sendMessage(queryId, responseMessage);
   } catch (e) {
     return res.status(500).json({});
   }
