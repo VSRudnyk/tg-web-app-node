@@ -33,17 +33,17 @@ bot.on('message', async (msg) => {
       }
     );
   }
-
-  app.post('/web-data', async (req, res) => {
-    const { responseMessage } = req.body;
-    try {
-      await bot.sendMessage(chatId, responseMessage);
-    } catch (e) {
-      return res.status(500).json({});
-    }
-  });
 });
 
-const PORT = 3000;
+app.post('/web-data', async (req, res) => {
+  const { responseMessage } = req.body;
+  try {
+    await bot.sendMessage(chatId, responseMessage);
+  } catch (e) {
+    return res.status(500).json({});
+  }
+});
+
+const PORT = 5000;
 
 app.listen(PORT, () => console.log('server started on PORT ' + PORT));
