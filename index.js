@@ -38,7 +38,15 @@ bot.on('message', async (msg) => {
 app.post('/web-data', async (req, res) => {
   const { responseMessage, queryId } = req.body;
   try {
-    await bot.sendMessage(queryId, responseMessage);
+    await bot.answerWebAppQuery(queryId, {
+      type: 'article',
+      id: queryId,
+      title: 'Success',
+      input_message_content: {
+        message_text: responseMessage,
+      },
+    });
+    return res.status(200).json({});
   } catch (e) {
     return res.status(500).json({});
   }
