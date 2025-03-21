@@ -1,11 +1,11 @@
+require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 
-const token = '6775830809:AAHDhPPC1mlB92qbh8wpX_sFBMLKbAF8Iw8';
-const webAppUrl = 'https://deluxe-marigold-3a3b14.netlify.app';
+const { TELEGRAM_TOKEN, WEB_APP_URL } = process.env;
 
-const bot = new TelegramBot(token, { polling: true });
+const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 const app = express();
 
 app.use(express.json());
@@ -25,7 +25,7 @@ bot.on('message', async (msg) => {
             [
               {
                 text: 'Перейти до завантаження зображення',
-                web_app: { url: webAppUrl },
+                web_app: { url: WEB_APP_URL },
               },
             ],
           ],
