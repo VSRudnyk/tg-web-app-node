@@ -26,7 +26,7 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
-  if (text === '/start') {
+  if (text) {
     await bot.sendMessage(
       chatId,
       'Для завантаження зображення перейдіть по кнопці нижче або натисніть кнопку "Сайт"',
