@@ -26,7 +26,25 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
-  if (text) {
+  if (text === '/start') {
+    await bot.sendMessage(
+      chatId,
+      'Для завантаження зображення перейдіть по кнопці нижче або натисніть кнопку "Сайт"',
+      {
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: 'Перейти до завантаження зображення',
+                web_app: { url: WEB_APP_URL }, // Ссылка на фронтенд
+              },
+            ],
+          ],
+        },
+      }
+    );
+  } else {
+    // Обработка любого другого текста
     await bot.sendMessage(
       chatId,
       'Для завантаження зображення перейдіть по кнопці нижче або натисніть кнопку "Сайт"',
